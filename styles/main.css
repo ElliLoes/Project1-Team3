@@ -1,0 +1,124 @@
+body {
+    background: #26d1a9;
+    font-family: 'Modak', cursive;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+}
+
+
+/* Navigation Top + Search */
+
+nav {
+    background: #2a2a2a;
+}
+
+nav#nav-bar {
+    z-index: 3;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none !important;
+    color: none !important;
+    border: 1px white solid !important;
+    background: transparent !important;
+}
+
+#search-icon {
+    width: 110px;
+    transition: 2s ease;
+    top: -15px;
+    left: 10px;
+    position: relative;
+}
+
+input#userInput:focus {
+    height: 75px !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 5px #26d1a9 solid !important;
+    border-radius: 5px !important;
+    font-size: 1.5em !important;
+    color: white !important;
+}
+
+input#userInput {
+    height: 55px !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 5px #26d1a9 solid !important;
+    border-radius: 5px !important;
+    transition: .5s ease !important;
+    font-size: 1.5em !important;
+    color: white !important;
+    font-family: 'Modak', cursive !important;
+    text-transform: uppercase;
+}
+
+#userInput::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: white !important;
+    font-size: 1.8em !important;
+}
+
+::-webkit-input-placeholder {
+    color: white !important;
+    background: transparent !important;
+}
+
+input.dropdown {
+    background: transparent;
+    font-size: 1em !important;
+    color: #26d1a9;
+    border: 2px solid white;
+    transition: .1s ease;
+    height: 45px;
+}
+
+input.dropdown:focus {
+    color: white !important;
+    background: transparent !important;
+    border-radius: 30px;
+}
+
+button.btn-add {
+    border: white 2px solid;
+    color: white;
+    /* background: #26d1a9; */
+    background: transparent;
+    border-radius: 30px;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    transition: .1s ease;
+}
+
+button.btn-add:hover {
+    padding: 15px 40px;
+    background: #26d1a9;
+    border: none;
+}
+
+button:focus {
+    outline: none;
+}
+
+
+/* Sections + Content  */
+
+main {
+    margin-top: 175px;
+}
+
+
+/* Media Queries */
+
+@media only screen and (max-width: 768px) {
+    input.dropdown,
+    input#userInput {
+        margin-top: 30px;
+    }
+    main {
+        margin-top: 220px;
+    }
+}
