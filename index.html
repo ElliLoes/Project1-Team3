@@ -13,6 +13,8 @@
 
 <body>
 
+    <section id="bgPattern" class="container-fluid"></section>
+
     <!-- Navigation Fixed Absolute -->
     <nav id="nav-bar" class="fixed-top col-12 mx-auto pt-4 pb-4">
         <div class="row">
@@ -49,13 +51,49 @@
 
     <!-- Full Page Js Create Sections -->
     <div id="fullpage">
-        <div class="section">
+        <div class="section bg-dark-2">
 
             <!-- Results Page - 01 -->
-            <div class="slide" data-anchor="Search">
+            <div class="slide no-gutters" data-anchor="Search">
                 <main class="container">
-                    <div class="row">
-                        <h1>Results</h1>
+                    <div class="row mt-5">
+                        <!-- Heading -->
+                        <header class="col-12">
+                            <h1>Results</h1>
+                        </header>
+
+                        <!-- Section for results to create cards -->
+                        <div id="addResults" class="col-12 mb-5">
+                            <!-- Result Cards  -->
+                            <div class="card bg-dark mt-3 col-12 no-gutters">
+                                <div class="row no-gutters">
+                                    <!-- Image Icon -->
+                                    <div class="col-2 col-md-2 d-flex align-items-center justify-content-center">
+                                        <img src="src/burger-icon.png" class="mr-3 rounded food-icon" alt="...">
+                                    </div>
+                                    <!-- Card Info -->
+                                    <div class="col-8 col-md-4 justify-content-center d-flex align-items-center">
+                                        <div class="card-body">
+                                            <h2 id="businessName">Burger Joint</h2>
+                                            <h4 id="location">Location: Sydney</h4>
+                                            <h4 id="price" class="d-none d-md-block">$$</h4>
+                                        </div>
+                                    </div>
+                                    <!-- Raitings + Price -->
+                                    <div class="col-2 col-md-2 justify-content-center d-flex align-items-center">
+                                        <div class="card-body text-center">
+                                            <h3 id="rating">5.0</h3>
+                                            <h4>Rating</h4>
+                                        </div>
+                                    </div>
+                                    <!-- Buttons For Actions -->
+                                    <div class="col-12 col-md-4 justify-content-center d-flex align-items-center">
+                                        <button class="btn-action mr-2">Webstie</button>
+                                        <button class="btn-action">Add Bite!</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </main>
             </div>
@@ -63,8 +101,16 @@
             <!-- Bites Page - 02 -->
             <div class="slide" data-anchor="Bites">
                 <main class="container">
-                    <div class="row">
-                        <h1>Bites</h1>
+                    <div class="row mt-5">
+                        <!-- Heading -->
+                        <header class="col-12">
+                            <h1>Bites</h1>
+                        </header>
+
+                        <!-- Section for results to create cards -->
+                        <div id="addBites" class="col-12 mb-5">
+                            <!-- Content Here -->
+                        </div>
                     </div>
                 </main>
             </div>
@@ -72,13 +118,19 @@
             <!-- Trips Page - 03-->
             <div class="slide" data-anchor="Trips">
                 <main class="container">
-                    <div class="row">
-                        <h1>Trips</h1>
+                    <div class="row mt-5">
+                        <!-- Heading -->
+                        <header class="col-12">
+                            <h1>Trips</h1>
+                        </header>
+
+                        <!-- Trips Page -->
+                        <div id="addTrips" class="col-12 mb-5">
+                            <!-- Content Here -->
+                        </div>
                     </div>
                 </main>
             </div>
-
-
 
         </div>
     </div>
