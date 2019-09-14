@@ -1,8 +1,24 @@
 body {
-    background: #26d1a9;
+    /* background: #26d1a9; */
+    background: linear-gradient(#26d1a9, transparent), linear-gradient(to top left, #00f29d, transparent), linear-gradient(to top right, #24009c, transparent);
     font-family: 'Modak', cursive;
     font-family: 'Open Sans', sans-serif;
     color: white;
+    height: 100vh;
+}
+
+
+/* Fonts + Texts */
+
+h2 {
+    font-size: 2.2em;
+    font-family: 'Modak', cursive;
+    text-transform: uppercase;
+}
+
+h4 {
+    font-size: 1em;
+    text-transform: uppercase;
 }
 
 
@@ -103,11 +119,61 @@ button:focus {
     outline: none;
 }
 
+button.btn-action {
+    border: white 2px solid;
+    color: white;
+    background: transparent;
+    border-radius: 20px;
+    padding: 10px 20px;
+    display: block;
+}
+
 
 /* Sections + Content  */
 
 main {
-    margin-top: 175px;
+    height: 100vh;
+    overflow-y: scroll !important;
+}
+
+section#bgPattern {
+    background: url("../src/food\ pattern.png");
+    background-repeat: repeat;
+    height: 100%;
+    opacity: .2;
+    z-index: 0;
+    position: absolute;
+}
+
+img.food-icon {
+    width: 90px;
+}
+
+div.card {
+    box-shadow: -5px 5px 5px rgba(26, 26, 26, 0.3);
+}
+
+.card-body {
+    padding: 20px 10px;
+}
+
+.bg-dark {
+    background-color: rgba(26, 26, 26, 0.7) !important;
+}
+
+.bg-dark-2 {
+    background-color: rgba(26, 26, 26, 0.5) !important;
+}
+
+header {
+    margin-top: 150px;
+}
+
+
+/* Scroll bar */
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 
@@ -118,7 +184,31 @@ main {
     input#userInput {
         margin-top: 30px;
     }
-    main {
-        margin-top: 220px;
+    img.food-icon {
+        width: 50px;
+    }
+    #businessName {
+        font-size: 1.4em;
+    }
+    button.btn-action {
+        font-size: .6em;
+        padding: 5px 20px;
+        margin: 10px;
+    }
+    h3 {
+        font-size: .8em;
+    }
+    h4 {
+        font-size: .6em;
+    }
+    .card-body {
+        padding: 10px 10px 0 10px;
+    }
+    header {
+        text-align: center;
+        margin-top: 175px;
+    }
+    .fp-controlArrow {
+        top: 275px;
     }
 }
