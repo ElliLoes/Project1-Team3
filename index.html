@@ -13,7 +13,9 @@
 
 <body>
 
+    <!-- BG Pattern + Arrows -->
     <section id="bgPattern" class="container-fluid"></section>
+    <section id="arrows" class="d-none d-md-block"><img src="src/arrows.png"></section>
 
     <!-- Navigation Fixed Absolute -->
     <nav id="nav-bar" class="fixed-top col-12 mx-auto pt-4 pb-4">
@@ -21,7 +23,7 @@
             <div class="col-12 col-md-7 d-flex align-items-center">
                 <form class="col-12 form-inline mx-auto">
                     <img id="search-icon" src="src/search-icon.png" class="d-none d-lg-block">
-                    <input id="userInput" class="flex-grow-1 search" type="search" placeholder="ChowTown" aria-label="Search">
+                    <input id="userInput" autocomplete="off" class="flex-grow-1 search" type="search" placeholder="ChowTown" aria-label="Search">
                     <button id="addTopic" class="btn-add ml-2 d-none d-lg-block" type="submit">Search</button>
                 </form>
             </div>
@@ -51,10 +53,10 @@
 
     <!-- Full Page Js Create Sections -->
     <div id="fullpage">
-        <div class="section bg-dark-2">
-
+        <div class="section">
             <!-- Results Page - 01 -->
-            <div class="slide no-gutters" data-anchor="Search">
+            <div class="slide" data-anchor="Search">
+
                 <main class="container">
                     <div class="row mt-5">
                         <!-- Heading -->
@@ -65,7 +67,7 @@
                         <!-- Section for results to create cards -->
                         <div id="addResults" class="col-12 mb-5">
                             <!-- Result Cards  -->
-                            <div class="card bg-dark mt-3 col-12 no-gutters">
+                            <div class="card bg-dark mt-3 pb-2 col-12 no-gutters">
                                 <div class="row no-gutters">
                                     <!-- Image Icon -->
                                     <div class="col-2 col-md-2 d-flex align-items-center justify-content-center">
@@ -108,8 +110,31 @@
                         </header>
 
                         <!-- Section for results to create cards -->
-                        <div id="addBites" class="col-12 mb-5">
-                            <!-- Content Here -->
+                        <div id="addBites" class="col-12 mt-3 mb-5">
+                            <div class="row">
+                                <!-- Card Template -->
+                                <div class="col-12 card col-md-6 bg-dark mb-3">
+                                    <div class="row justify-content-center d-flex align-items-center">
+                                        <!-- Card Information -->
+                                        <div class="col-8 p-4 text-card">
+                                            <h2 id="businessName">Burger Joint</h2>
+                                            <h3 id="rating">5.0</h3>
+                                            <h4 id="location">Location: Sydney</h4>
+                                            <h4 id="price">$$</h4>
+                                        </div>
+                                        <!-- Button Actions -->
+                                        <div class="col-4">
+                                            <div class="row d-flex flex-row-reverse mr-1">
+                                                <button href="#" class="btn-action">Website</button>
+                                                <button href="#" class="btn-action">Add Trip</button>
+                                                <button href="#" class="btn-action">Remove</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
                         </div>
                     </div>
                 </main>
@@ -131,7 +156,6 @@
                     </div>
                 </main>
             </div>
-
         </div>
     </div>
 

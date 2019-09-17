@@ -25,7 +25,7 @@ h4 {
 /* Navigation Top + Search */
 
 nav {
-    background: #2a2a2a;
+    /* background: #2a2a2a; */
 }
 
 nav#nav-bar {
@@ -53,7 +53,7 @@ input#userInput:focus {
     height: 75px !important;
     background: transparent !important;
     border: none !important;
-    border-bottom: 5px #26d1a9 solid !important;
+    border-bottom: 5px white solid !important;
     border-radius: 5px !important;
     font-size: 1.5em !important;
     color: white !important;
@@ -63,7 +63,7 @@ input#userInput {
     height: 55px !important;
     background: transparent !important;
     border: none !important;
-    border-bottom: 5px #26d1a9 solid !important;
+    border-bottom: 5px white solid !important;
     border-radius: 5px !important;
     transition: .5s ease !important;
     font-size: 1.5em !important;
@@ -84,9 +84,9 @@ input#userInput {
 }
 
 input.dropdown {
-    background: transparent;
+    background-color: rgba(26, 26, 26, 0.2) !important;
     font-size: 1em !important;
-    color: #26d1a9;
+    color: white;
     border: 2px solid white;
     transition: .1s ease;
     height: 45px;
@@ -94,7 +94,7 @@ input.dropdown {
 
 input.dropdown:focus {
     color: white !important;
-    background: transparent !important;
+    background-color: rgba(26, 26, 26, 0.5) !important;
     border-radius: 30px;
 }
 
@@ -102,7 +102,7 @@ button.btn-add {
     border: white 2px solid;
     color: white;
     /* background: #26d1a9; */
-    background: transparent;
+    background-color: rgba(26, 26, 26, 0.2) !important;
     border-radius: 30px;
     padding: 10px 30px;
     /* text-transform: uppercase; */
@@ -110,22 +110,22 @@ button.btn-add {
 }
 
 button.btn-add:hover {
-    padding: 15px 40px;
-    background: #26d1a9;
-    border: none;
+    background: #1a1a1a !important;
+    border: 2px solid #1a1a1a;
 }
 
 button:focus {
     outline: none;
 }
 
-button.btn-action {
+.btn-action {
     border: white 2px solid;
     color: white;
     background: transparent;
     border-radius: 20px;
     padding: 10px 20px;
     display: block;
+    margin-bottom: 5px !important;
 }
 
 
@@ -145,6 +145,14 @@ section#bgPattern {
     position: absolute;
 }
 
+section#arrows {
+    opacity: .8;
+    z-index: 5;
+    position: absolute;
+    right: 50px;
+    bottom: 30px;
+}
+
 img.food-icon {
     width: 90px;
 }
@@ -153,16 +161,20 @@ div.card {
     box-shadow: -5px 5px 5px rgba(26, 26, 26, 0.3);
 }
 
+.text-card h2 {
+    font-size: 2em;
+}
+
 .card-body {
     padding: 20px 10px;
 }
 
 .bg-dark {
-    background-color: rgba(26, 26, 26, 0.7) !important;
+    background-color: rgba(26, 26, 26, 0.5) !important;
 }
 
 .bg-dark-2 {
-    background-color: rgba(26, 26, 26, 0.4) !important;
+    /* background-color: rgba(26, 26, 26, 0.4) !important; */
 }
 
 header {
@@ -190,7 +202,7 @@ header {
     #businessName {
         font-size: 1.4em;
     }
-    button.btn-action {
+    .btn-action {
         font-size: .6em;
         padding: 5px 20px;
         margin: 10px;
