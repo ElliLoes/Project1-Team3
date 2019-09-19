@@ -1,18 +1,18 @@
 body {
     /* background: #26d1a9; */
     background: linear-gradient(#26d1a9, transparent), linear-gradient(to top left, #00f29d, transparent), linear-gradient(to top right, #24009c, transparent);
-    font-family: 'Modak', cursive;
-    font-family: 'Open Sans', sans-serif;
     color: white;
     height: 100vh;
+    font-family: 'Bungee', cursive;
+    font-family: 'Open Sans', sans-serif;
 }
 
 
 /* Fonts + Texts */
 
 h2 {
-    font-size: 2.2em;
-    font-family: 'Modak', cursive;
+    font-size: 2em;
+    font-family: 'Bungee', cursive;
     text-transform: uppercase;
 }
 
@@ -24,99 +24,90 @@ h4 {
 
 /* Navigation Top + Search */
 
-nav {
-    background: #2a2a2a;
-}
-
 nav#nav-bar {
     z-index: 3;
+    height: 85px;
 }
 
 input:focus,
 textarea:focus,
-select:focus {
-    outline: none !important;
-    color: none !important;
-    border: 1px white solid !important;
-    background: transparent !important;
+select:focus,
+button:focus {
+    outline: none;
+    color: none;
+    border: 1px white solid;
+    background: transparent;
 }
 
 #search-icon {
-    width: 110px;
-    transition: 2s ease;
-    top: -15px;
-    left: 10px;
+    width: 100px;
+    height: auto;
     position: relative;
 }
 
-input#userInput:focus {
-    height: 75px !important;
-    background: transparent !important;
-    border: none !important;
-    border-bottom: 5px #26d1a9 solid !important;
-    border-radius: 5px !important;
-    font-size: 1.5em !important;
-    color: white !important;
-}
-
 input#userInput {
-    height: 55px !important;
-    background: transparent !important;
-    border: none !important;
-    border-bottom: 5px #26d1a9 solid !important;
-    border-radius: 5px !important;
-    transition: .5s ease !important;
-    font-size: 1.5em !important;
-    color: white !important;
-    font-family: 'Modak', cursive !important;
+    height: 50px;
+    background-color: rgba(26, 26, 26, 0.3);
+    border: none;
+    border-bottom: 5px white solid;
+    border-radius: 5px;
+    transition: .5s ease;
+    font-size: 1.5em;
+    color: white;
+    font-family: 'Bungee', cursive;
     text-transform: uppercase;
+    padding-top: 15px;
+    padding: 25px 10px 15px 10px;
 }
 
-#userInput::-webkit-input-placeholder {
-    /* Chrome/Opera/Safari */
-    color: white !important;
-    font-size: 1.8em !important;
+input#userInput:focus {
+    height: 60px;
+    background: transparent;
+    color: white;
 }
 
 ::-webkit-input-placeholder {
-    color: white !important;
-    background: transparent !important;
+    color: white;
+    background: transparent;
+}
+
+#userInput::-webkit-input-placeholder {
+    color: white;
+    font-size: 1.5em;
 }
 
 input.dropdown {
-    background: transparent;
-    font-size: 1em !important;
-    color: #26d1a9;
+    background-color: rgba(26, 26, 26, 0.3);
+    font-size: 1em;
+    color: white;
     border: 2px solid white;
     transition: .1s ease;
     height: 45px;
+    width: 100%;
+    padding-left: 10px;
 }
 
 input.dropdown:focus {
-    color: white !important;
-    background: transparent !important;
+    color: white;
+    background-color: rgba(26, 26, 26, 0.5);
     border-radius: 30px;
 }
+
+
+/* Buttons + Hover */
 
 button.btn-add {
     border: white 2px solid;
     color: white;
-    /* background: #26d1a9; */
-    background: transparent;
+    background-color: rgba(26, 26, 26, 0.3);
     border-radius: 30px;
     padding: 10px 30px;
-    text-transform: uppercase;
     transition: .1s ease;
 }
 
-button.btn-add:hover {
-    padding: 15px 40px;
-    background: #26d1a9;
-    border: none;
-}
-
-button:focus {
-    outline: none;
+button:hover {
+    background: #1a1a1a;
+    border: 2px solid #1a1a1a;
 }
 
 button.btn-action {
@@ -126,6 +117,35 @@ button.btn-action {
     border-radius: 20px;
     padding: 10px 20px;
     display: block;
+    margin-bottom: 5px;
+}
+
+.btn-green,
+.btn-pink {
+    background: #00f29d;
+    color: white;
+}
+
+.focus {
+    background-color: #db567e !important;
+}
+
+label.btn {
+    font-size: .8em !important;
+    padding: 5px !important;
+    margin: 0 !important;
+}
+
+
+/* Icons */
+
+img.clear {
+    width: auto;
+    height: 31px;
+}
+
+img.heart {
+    width: 20px;
 }
 
 
@@ -133,8 +153,107 @@ button.btn-action {
 
 main {
     height: 100vh;
-    overflow-y: scroll !important;
+    overflow-y: scroll;
 }
+
+header {
+    border-bottom: 2px white solid;
+}
+
+.text-card h2 {
+    font-size: 2em;
+}
+
+.card-body {
+    padding: 20px 10px;
+}
+
+.bg-dark {
+    background-color: rgba(26, 26, 26, 0.5) !important;
+}
+
+
+/* Table Results */
+
+.table-dark {
+    background-color: rgba(26, 26, 26, 0.6) !important;
+}
+
+img.food-icon {
+    width: 35px;
+}
+
+td.bubbleFont {
+    font-family: 'Bungee', cursive;
+    font-size: 1.3em;
+    text-transform: uppercase;
+}
+
+
+/* Bites + Search Bar */
+
+input#searchBites {
+    height: 40px;
+    background-color: rgba(26, 26, 26, 0.3);
+    border: none;
+    border-radius: 5px;
+    transition: .5s ease;
+    font-size: 1em;
+    color: white;
+    padding-top: 15px;
+    padding: 20px 10px;
+    width: 100%;
+}
+
+div.card {
+    width: 32%;
+    height: auto;
+    box-shadow: -5px 5px 5px rgba(26, 26, 26, 0.3);
+    padding: 10px 5px;
+    transition: .5s ease;
+}
+
+div.card:hover {
+    transform: scale(1.05);
+}
+
+div.card h2 {
+    font-size: 1.2em;
+}
+
+img.remove,
+img.share,
+img.web {
+    position: absolute;
+    transition: .5s ease;
+}
+
+img.remove {
+    width: 20px;
+    right: 10px;
+    top: 0;
+}
+
+img.share {
+    width: 25px;
+    right: 7px;
+    bottom: 0;
+}
+
+img.web {
+    width: 25px;
+    right: 40px;
+    bottom: 0;
+}
+
+img.remove:hover,
+img.share:hover,
+img.web:hover {
+    transform: scale(1.2);
+}
+
+
+/* BG Pattern + Arrows */
 
 section#bgPattern {
     background: url("../src/food\ pattern.png");
@@ -145,28 +264,47 @@ section#bgPattern {
     position: absolute;
 }
 
-img.food-icon {
-    width: 90px;
+section#arrows {
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
-div.card {
-    box-shadow: -5px 5px 5px rgba(26, 26, 26, 0.3);
+img.arrowLWhite,
+img.arrowLBlack {
+    opacity: .8;
+    z-index: 6;
+    position: absolute;
+    right: 100px;
+    bottom: 10px;
 }
 
-.card-body {
-    padding: 20px 10px;
+img.arrowRWhite,
+img.arrowRBlack {
+    opacity: .8;
+    z-index: 6;
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
 }
 
-.bg-dark {
-    background-color: rgba(26, 26, 26, 0.7) !important;
+.fp-controlArrow {
+    top: 70px;
 }
 
-.bg-dark-2 {
-    background-color: rgba(26, 26, 26, 0.5) !important;
+button.btn-table {
+    border: white 2px solid;
+    color: white;
+    background-color: rgba(26, 26, 26, 0.3);
+    border-radius: 30px;
+    padding: 2px 20px;
+    transition: .1s ease;
+    font-size: .8em;
 }
 
-header {
-    margin-top: 150px;
+button.btn-table:hover {
+    background: #1a1a1a;
+    border: 2px solid #1a1a1a;
 }
 
 
@@ -179,36 +317,36 @@ header {
 
 /* Media Queries */
 
+@media only screen and (max-width: 1093px) {
+    button#addTopic {
+        display: none;
+    }
+}
+
 @media only screen and (max-width: 768px) {
-    input.dropdown,
+    nav#nav-bar {
+        z-index: 3;
+        height: 150px;
+    }
     input#userInput {
-        margin-top: 30px;
-    }
-    img.food-icon {
-        width: 50px;
-    }
-    #businessName {
-        font-size: 1.4em;
-    }
-    button.btn-action {
-        font-size: .6em;
-        padding: 5px 20px;
-        margin: 10px;
-    }
-    h3 {
-        font-size: .8em;
-    }
-    h4 {
-        font-size: .6em;
-    }
-    .card-body {
-        padding: 10px 10px 0 10px;
-    }
-    header {
-        text-align: center;
-        margin-top: 175px;
+        width: 90%;
     }
     .fp-controlArrow {
-        top: 275px;
+        top: 65px;
+    }
+    img.food-icon {
+        display: none;
+    }
+    td.bubbleFont {
+        font-size: 1em;
+    }
+    div.card {
+        width: 450px;
+        height: auto;
+    }
+    button.btn-table {
+        font-size: .7em;
+        padding: 8px 20px;
+        border-radius: 15px;
     }
 }

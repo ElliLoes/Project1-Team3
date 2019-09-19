@@ -6,144 +6,172 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Modak|Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/fullpage.css">
     <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body>
 
+    <!-- Background-Color + Arrows -->
     <section id="bgPattern" class="container-fluid"></section>
+    <section id="arrows" class="d-none d-md-block">
+        <img class="arrowLWhite" src="src/arrow01.png">
+        <img class="arrowRWhite fp-next" src="src/arrow02.png">
+        <img class="arrowLBlack d-none" src="src/arrow03.png">
+        <img class="arrowRBlack d-none" src="src/arrow04.png">
+    </section>
 
-    <!-- Navigation Fixed Absolute -->
-    <nav id="nav-bar" class="fixed-top col-12 mx-auto pt-4 pb-4">
-        <div class="row">
-            <div class="col-12 col-md-7 d-flex align-items-center">
-                <form class="col-12 form-inline mx-auto">
-                    <img id="search-icon" src="src/search-icon.png" class="d-none d-lg-block">
-                    <input id="userInput" class="flex-grow-1 search" type="search" placeholder="ChowTown" aria-label="Search">
-                    <button id="addTopic" class="btn-add ml-2 d-none d-lg-block" type="submit">Search</button>
-                </form>
+    <!-- Navigation + Search Bar -->
+    <div class="col-12">
+        <nav id="nav-bar" class="row d-flex align-items-center">
+            <!-- Search Bar + Icon + Button -->
+            <div class="col-12 col-md-7">
+                <div class="row d-flex justify-content-center align-items-center">
+                    <img id="search-icon" src="src/search-icon.png" class="mr-2 ml-2 d-none d-lg-block">
+                    <input id="userInput" autocomplete="off" class="flex-md-fill search" type="search" placeholder="ChowTown" aria-label="Search">
+                    <button id="addTopic" class="btn-add ml-4" type="submit">Search</button>
+                </div>
             </div>
-            <div class="col-6 col-md-2 d-flex align-items-center">
-                <input class="form-control dropdown" list="listLocation" type="Location" placeholder="location" aria-label="location">
-                <datalist id="listLocation">
-					<option value="Sydney"></option>
-					<option value="Brisbane"></option>
-					<option value="Canberra"></option>
-					<option value="Perth"></option>
-					<option value="Hobart"></option>
-					<option value="Adelaide"></option>
-					<option value="Darwin"></option>
-				</datalist>
+            <!-- Location + Food Categories -->
+            <div class="col-12 col-md-5 d-flex align-items-center justify-content-center">
+                <div class="row">
+                    <!-- Location + Data List -->
+                    <div class="col-6">
+                        <input class="dropdown" list="listLocation" type="Location" placeholder="Location" aria-label="location">
+                        <datalist id="listLocation">
+							<option value="Sydney"></option>
+							<option value="Brisbane"></option>
+							<option value="Canberra"></option>
+							<option value="Perth"></option>
+							<option value="Hobart"></option>
+							<option value="Adelaide"></option>
+							<option value="Darwin"></option>
+						</datalist>
+                    </div>
+                    <!-- Food Items + Data List -->
+                    <div class="col-6">
+                        <input class="dropdown" list="listFoods" type="Food types" placeholder="Food" aria-label="food">
+                        <datalist id="listFoods">
+							<option value="Chicken"></option>
+							<option value="Pizza"></option>
+							<option value="Ramen"></option>
+							<option value="Noodles"></option>
+						</datalist>
+                    </div>
+                </div>
             </div>
-            <div class="col-6 col-md-2 d-flex align-items-center">
-                <input class="form-control dropdown" list="listFoods" type="Food types" placeholder="Food" aria-label="food">
-                <datalist id="listFoods">
-					<option value="Chicken"></option>
-					<option value="Pizza"></option>
-					<option value="Ramen"></option>
-					<option value="Noodles"></option>
-				</datalist>
-            </div>
-        </div>
-    </nav>
+        </nav>
+    </div>
 
-    <!-- Full Page Js Create Sections -->
+    <!-- Full Page JS -->
     <div id="fullpage">
-        <div class="section bg-dark-2">
-
+        <!-- Section -->
+        <div class="section">
             <!-- Results Page - 01 -->
-            <div class="slide no-gutters" data-anchor="Search">
-                <main class="container">
-                    <div class="row mt-5">
-                        <!-- Heading -->
-                        <header class="col-12">
-                            <h1>Results</h1>
-                        </header>
+            <div class="slide">
+                <main class="container mt-3 mb-5" data-anchor="Search">
+                    <!-- Heading + Options -->
+                    <header class="col-12 d-flex">
+                        <div class="col-8 d-flex justify-content-start">
+                            <h2>Results</h2>
+                        </div>
+                        <div class="col-4 d-flex justify-content-end">
+                            <a id="clearList" href="#"><img src="src/clear-icon.png" class="clear"></a>
+                        </div>
+                    </header>
+                    <!-- Results Table -->
+                    <table class="table mt-3 mb-5 table-hover table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">Business</th>
+                                <th scope="col">Location</th>
+                                <th scope="col" class="d-none d-md-block">Food</th>
+                                <th scope="col">Price</th>
+                                <th scope="col" class="d-none d-md-block">Website</th>
+                                <th scope="col">Add</th>
+                            </tr>
+                        </thead>
+                        <tbody id="addResult">
+                            <tr>
+                                <td class="bubbleFont">
+                                    <img src="src/burger-icon.png" class="mr-3 rounded food-icon">Burger Joint</td>
+                                <td>Sydney</td>
+                                <td class="d-none d-md-block">Burger</td>
+                                <td class="bubbleFont">$$</td>
+                                <td class="d-none d-md-block"><button class="btn-table">Website</button></td>
+                                <td><button class="btn-table">Add Bite</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </main>
+            </div>
 
-                        <!-- Section for results to create cards -->
-                        <div id="addResults" class="col-12 mb-5">
-                            <!-- Result Cards  -->
-                            <div class="card bg-dark mt-3 col-12 no-gutters">
-                                <div class="row no-gutters">
-                                    <!-- Image Icon -->
-                                    <div class="col-2 col-md-2 d-flex align-items-center justify-content-center">
-                                        <img src="src/burger-icon.png" class="mr-3 rounded food-icon" alt="...">
+            <div class="slide">
+                <main class="container mt-3" data-anchor="Bites">
+                    <!-- Heading + Options -->
+                    <header class="col-12 d-flex">
+                        <div class="col-5 col-md-8 d-flex justify-content-start">
+                            <h2>Bites</h2>
+                        </div>
+                        <div class="col-7 col-md-4 d-flex justify-content-end">
+                            <input id="searchBites" autocomplete="off" class="" type="search" placeholder="Search Bites" aria-label="Search">
+                        </div>
+                    </header>
+
+                    <!-- Bites Added  -->
+                    <section class="col-12 mt-3">
+                        <div id="addBites" class="row d-flex">
+                            <!-- Bite Card Template -->
+                            <div class="card mr-2 mb-2 bg-dark">
+                                <div class="col-12">
+                                    <!-- Remove Icon -->
+                                    <a id="removeBite" href="#"><img src="src/exit-icon.png" class="remove"></a>
+                                    <a id="shareButton" href="#"><img src="src/share-link.png" class="share"></a>
+                                    <a id="webButton" href="#"><img src="src/web-link.png" class="web"></a>
+                                    <!-- Resutrant Details -->
+                                    <div class="d-flex">
+                                        <h2 class="pr-3">Burger Joint</h2>
+                                        <h2>$$</h2>
                                     </div>
-                                    <!-- Card Info -->
-                                    <div class="col-8 col-md-4 justify-content-center d-flex align-items-center">
-                                        <div class="card-body">
-                                            <h2 id="businessName">Burger Joint</h2>
-                                            <h4 id="location">Location: Sydney</h4>
-                                            <h4 id="price" class="d-none d-md-block">$$</h4>
+                                    <div class="d-flex">
+                                        <p class="pr-3">Sydney</p>
+                                        <p>Burgers</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="btn-group btn-group-toggle mr-2" data-toggle="buttons">
+                                            <label class="btn btn-green"><input type="radio" name="options" id="option1" autocomplete="off" checked>Try</label>
+                                            <label class="btn btn-pink"><input type="radio" name="options" id="option2" autocomplete="off"><img src="src/heart-icon.png" class="heart"></label>
                                         </div>
-                                    </div>
-                                    <!-- Raitings + Price -->
-                                    <div class="col-2 col-md-2 justify-content-center d-flex align-items-center">
-                                        <div class="card-body text-center">
-                                            <h3 id="rating">5.0</h3>
-                                            <h4>Rating</h4>
-                                        </div>
-                                    </div>
-                                    <!-- Buttons For Actions -->
-                                    <div class="col-12 col-md-4 justify-content-center d-flex align-items-center">
-                                        <button class="btn-action mr-2">Webstie</button>
-                                        <button class="btn-action">Add Bite!</button>
+                                        <button class="btn-table">Add Cookies</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </section>
                 </main>
             </div>
 
-            <!-- Bites Page - 02 -->
-            <div class="slide" data-anchor="Bites">
-                <main class="container">
-                    <div class="row mt-5">
-                        <!-- Heading -->
-                        <header class="col-12">
-                            <h1>Bites</h1>
-                        </header>
-
-                        <!-- Section for results to create cards -->
-                        <div id="addBites" class="col-12 mb-5">
-                            <!-- Content Here -->
+            <div class="slide">
+                <main class="container mt-3" data-anchor="Goodies">
+                    <!-- Heading + Options -->
+                    <header class="col-12 d-flex">
+                        <div class="col-5 col-md-8 d-flex justify-content-start">
+                            <h2>Cookies</h2>
                         </div>
-                    </div>
+                        <div class="col-7 col-md-4 d-flex justify-content-end"></div>
+                    </header>
                 </main>
             </div>
-
-            <!-- Trips Page - 03-->
-            <div class="slide" data-anchor="Trips">
-                <main class="container">
-                    <div class="row mt-5">
-                        <!-- Heading -->
-                        <header class="col-12">
-                            <h1>Trips</h1>
-                        </header>
-
-                        <!-- Trips Page -->
-                        <div id="addTrips" class="col-12 mb-5">
-                            <!-- Content Here -->
-                        </div>
-                    </div>
-                </main>
-            </div>
-
         </div>
-    </div>
 
 
-
-
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="scripts/fullpage.js"></script>
-    <script src="scripts/app.js"></script>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="scripts/fullpage.js"></script>
+        <script src="scripts/app.js"></script>
 </body>
 
 </html>
