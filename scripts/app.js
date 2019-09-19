@@ -14,6 +14,8 @@ window.onload = function() {
     //methods
     $.fn.fullpage.setAllowScrolling(true);
 
+
+    // left and right keydown change color of arrow
     $(document).keydown(function(e) {
         if (e.which == 37) {
             $(".arrowLBlack").removeClass("d-none");
@@ -25,6 +27,7 @@ window.onload = function() {
         }
     });
 
+    // left and right keyup change color back
     $(document).keyup(function(e) {
         if (e.which == 37) {
             $(".arrowLBlack").addClass("d-none");
@@ -35,4 +38,78 @@ window.onload = function() {
         }
     });
 
+
 }
+
+// function to simulate search
+function mockupSearchResults() {
+    // empty before loading
+    $("#addResult").empty();
+
+    // add variables for mockup info
+    var business = "Burger Joint";
+    var imgSrc = "src/burger-icon.png";
+    var location = "Sydney";
+    var category = "Burgers";
+    var price = "$$";
+
+
+    // Creates a div to hold the movie
+    for (var i = 0; i < 11; i++) {
+
+        // vars to create elements
+        var tr = $("<tr>");
+
+        // prepend to relevant table rows
+        $("#addResult").prepend(tr);
+
+        // add table contents
+        $(tr).append("<td class='bubbleFont'>" + "<img src='src/burger-icon.png' class='mr-3 rounded food-icon'>" + business);
+        $(tr).append("<td>" + location);
+        $(tr).append("<td class='d-none d-md-block'>" + category);
+        $(tr).append("<td class='bubbleFont'>" + price);
+        $(tr).append("<td class='d-none d-md-block'>" + "<button class='btn-table'>Website</button>");
+        $(tr).append("<td>" + "<button class='btn-table'>Add Bite</button>");
+    }
+
+}
+
+function mockupBiteCards() {
+    // empty before loading
+    $("#addBites").empty();
+
+    // add variables for mockup info
+    var business = "Burger Joint";
+    var imgSrc = "src/burger-icon.png";
+    var location = "Sydney";
+    var category = "Burgers";
+    var price = "$$";
+
+    // Creates a div to hold the movie
+    for (var i = 0; i < 15; i++) {
+
+        // vars to create elements
+        var divCard = $("<div class='card mr-2 mb-2 bg-dark'>");
+        var divCol = $("<div class='col-12'>");
+        var divFlex = $('<div class="d-flex">');
+        // buttons for card
+        var removeBtn = $('<a id="removeBite" href="#"><img src="src/exit-icon.png" class="remove"></a>');
+        var shareBtn = $('<a id="shareButton" href="#"><img src="src/share-link.png" class="share"></a>');
+        var webBtn = $('<a id="webButton" href="#"><img src="src/web-link.png" class="web"></a>');
+
+        // prepend relevant divs
+        $("#addBites").prepend(divCard);
+        $(divCard).prepend(divCol);
+        $(divCol).prepend(removeBtn);
+        $(divCol).prepend(shareBtn);
+        $(divCol).prepend(webBtn);
+
+        // add table contents
+        $(divCol).append('<div class="d-flex"><h2 class="pr-3">' + business + '</h2><h2>' + price + '</h2></div>');
+        $(divCol).append('<div class="d-flex"><p class="pr-3">' + location + '</p><p>' + category + '</p></div>');
+        $(divCol).append('<div class="btn-group btn-group-toggle mr-2" data-toggle="buttons"><label class="btn btn-green"><input type="radio" name="options" id="option1" autocomplete="off" checked>Try</label><label class="btn btn-pink"><input type="radio" name="options" id="option2" autocomplete="off"><img src="src/heart-icon.png" class="heart"></label></div><button class="btn-table">Add Cookies</button>')
+    }
+}
+
+mockupBiteCards();
+mockupSearchResults();

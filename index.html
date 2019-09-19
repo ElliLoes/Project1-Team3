@@ -70,7 +70,7 @@
         <div class="section">
             <!-- Results Page - 01 -->
             <div class="slide">
-                <main class="container mt-3" data-anchor="Search">
+                <main class="container mt-3 mb-5" data-anchor="Search">
                     <!-- Heading + Options -->
                     <header class="col-12 d-flex">
                         <div class="col-8 d-flex justify-content-start">
@@ -81,7 +81,7 @@
                         </div>
                     </header>
                     <!-- Results Table -->
-                    <table class="table mt-3 table-hover table-dark">
+                    <table class="table mt-3 mb-5 table-hover table-dark">
                         <thead>
                             <tr>
                                 <th scope="col">Business</th>
@@ -121,11 +121,31 @@
 
                     <!-- Bites Added  -->
                     <section class="col-12 mt-3">
-                        <div class="row d-flex">
+                        <div id="addBites" class="row d-flex">
+                            <!-- Bite Card Template -->
                             <div class="card mr-2 mb-2 bg-dark">
-                                <a id="removeBite" href="#"><img src="src/exit-icon.png" class="remove"></a>
-                                <h2>Burger Joint</h2>
-                                <h2>$$</h2>
+                                <div class="col-12">
+                                    <!-- Remove Icon -->
+                                    <a id="removeBite" href="#"><img src="src/exit-icon.png" class="remove"></a>
+                                    <a id="shareButton" href="#"><img src="src/share-link.png" class="share"></a>
+                                    <a id="webButton" href="#"><img src="src/web-link.png" class="web"></a>
+                                    <!-- Resutrant Details -->
+                                    <div class="d-flex">
+                                        <h2 class="pr-3">Burger Joint</h2>
+                                        <h2>$$</h2>
+                                    </div>
+                                    <div class="d-flex">
+                                        <p class="pr-3">Sydney</p>
+                                        <p>Burgers</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="btn-group btn-group-toggle mr-2" data-toggle="buttons">
+                                            <label class="btn btn-green"><input type="radio" name="options" id="option1" autocomplete="off" checked>Try</label>
+                                            <label class="btn btn-pink"><input type="radio" name="options" id="option2" autocomplete="off"><img src="src/heart-icon.png" class="heart"></label>
+                                        </div>
+                                        <button class="btn-table">Add Cookies</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </section>

@@ -120,12 +120,32 @@ button.btn-action {
     margin-bottom: 5px;
 }
 
+.btn-green,
+.btn-pink {
+    background: #00f29d;
+    color: white;
+}
+
+.focus {
+    background-color: #db567e !important;
+}
+
+label.btn {
+    font-size: .8em !important;
+    padding: 5px !important;
+    margin: 0 !important;
+}
+
 
 /* Icons */
 
 img.clear {
     width: auto;
     height: 31px;
+}
+
+img.heart {
+    width: 20px;
 }
 
 
@@ -187,29 +207,49 @@ input#searchBites {
 
 div.card {
     width: 32%;
-    height: 120px;
+    height: auto;
     box-shadow: -5px 5px 5px rgba(26, 26, 26, 0.3);
-    padding: 5px 10px;
+    padding: 10px 5px;
     transition: .5s ease;
 }
 
 div.card:hover {
-    transform: scale(1.08);
+    transform: scale(1.05);
 }
 
 div.card h2 {
     font-size: 1.2em;
 }
 
-img.remove {
-    width: 20px;
+img.remove,
+img.share,
+img.web {
     position: absolute;
-    right: 10px;
     transition: .5s ease;
 }
 
-img.remove:hover {
-    transform: scale(1.1);
+img.remove {
+    width: 20px;
+    right: 10px;
+    top: 0;
+}
+
+img.share {
+    width: 25px;
+    right: 7px;
+    bottom: 0;
+}
+
+img.web {
+    width: 25px;
+    right: 40px;
+    bottom: 0;
+}
+
+img.remove:hover,
+img.share:hover,
+img.web:hover {
+    transform: scale(1.2);
 }
 
 
@@ -302,7 +342,7 @@ button.btn-table:hover {
     }
     div.card {
         width: 450px;
-        height: 150px;
+        height: auto;
     }
     button.btn-table {
         font-size: .7em;
