@@ -12,6 +12,30 @@
 </head>
 
 <body>
+    <!-- Modal For Cookies Add Location Folder -->
+    <div class="modal fade" id="tripModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Add Your Trip Name</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+                </div>
+                <div class="modal-body">
+                    <div class="md-form mb-5">
+                        <i class="fas fa-tag prefix grey-text"></i>
+                        <input type="text" id="form32" class="form-control validate form-input">
+                    </div>
+                    <p id="folder-name-form-error" class="text-danger">Error</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary modalButton" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-secondary modalButton">Add Trip Name</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Background-Color + Arrows -->
     <section id="bgPattern" class="container-fluid"></section>
@@ -143,7 +167,17 @@
                                             <label class="btn btn-green"><input type="radio" name="options" id="option1" autocomplete="off" checked>Try</label>
                                             <label class="btn btn-pink"><input type="radio" name="options" id="option2" autocomplete="off"><img src="src/heart-icon.png" class="heart"></label>
                                         </div>
-                                        <button class="btn-table">Add Cookies</button>
+                                        <div class="dropdown">
+                                            <button id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn-table dropdown-toggle">Add Cookies</button>
+
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="#">Sydney</a>
+                                                <a class="dropdown-item" href="#">Tokyo</a>
+                                                <a class="dropdown-item" href="#">Hawaii</a>
+                                            </div>
+                                        </div>
+
+
                                     </div>
                                 </div>
                             </div>
@@ -161,6 +195,24 @@
                         </div>
                         <div class="col-7 col-md-4 d-flex justify-content-end"></div>
                     </header>
+
+                    <section id="addCookies" class="col-12 mt-3">
+                        <!-- container for cards -->
+                        <div id="cardContain" class="w-100 d-flex align-items-center">
+                            <div class="cardCookies justify-content-center mr-2 bg-pink d-flex align-items-center">
+                                <button id="tripButton" class="text-white" href="#" data-toggle="modal" data-target="#tripModal"><h2>+ Add</h2></button>
+                            </div>
+
+                            <!-- Cookies -->
+                            <div class="cardCookies justify-content-center mr-2 bg-dark d-flex align-items-center">
+                                <a id="removeBite" href="#"><img src="src/exit-icon.png" class="remove2"></a>
+                                <a id="edit" href="#"><img src="src/edit-icon.png" class="edit"></a>
+                                <h2 class="text-light">Cookie</h2>
+                            </div>
+
+                        </div>
+                    </section>
+                    <hr style="border: 1px solid white;">
                 </main>
             </div>
         </div>

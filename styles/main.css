@@ -172,6 +172,10 @@ header {
     background-color: rgba(26, 26, 26, 0.5) !important;
 }
 
+.bg-pink {
+    background-color: rgba(194, 60, 96, 0.8) !important;
+}
+
 
 /* Table Results */
 
@@ -213,7 +217,8 @@ div.card {
     transition: .5s ease;
 }
 
-div.card:hover {
+div.card:hover,
+.dropdown-menu {
     transform: scale(1.05);
 }
 
@@ -222,16 +227,30 @@ div.card h2 {
 }
 
 img.remove,
+img.remove2,
 img.share,
-img.web {
+img.web,
+img.edit {
     position: absolute;
     transition: .5s ease;
+}
+
+img.edit {
+    width: 25px;
+    left: 10px;
+    top: 10px;
 }
 
 img.remove {
     width: 20px;
     right: 10px;
     top: 0;
+}
+
+img.remove2 {
+    width: 20px;
+    right: 12px;
+    top: 10px;
 }
 
 img.share {
@@ -247,8 +266,10 @@ img.web {
 }
 
 img.remove:hover,
+img.remove2:hover,
 img.share:hover,
-img.web:hover {
+img.web:hover,
+img.edit:hover {
     transform: scale(1.2);
 }
 
@@ -315,6 +336,65 @@ button.btn-table:hover {
 }
 
 
+/* Additions */
+
+#cardContain {
+    width: 1000px;
+    height: 200px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding-left: 5px;
+}
+
+.cardCookies {
+    width: 200px;
+    height: 150px;
+    box-shadow: -5px 5px 5px rgba(26, 26, 26, 0.3);
+    padding: 10px 5px;
+    border-radius: 10px;
+    transition: .5s ease;
+    position: relative;
+    padding: 0 20px;
+}
+
+.cardCookies h2 {
+    font-size: 1.3em;
+}
+
+#tripButton {
+    background: transparent;
+    border: none;
+}
+
+.modal .modal-dialog .modal-content {
+    background-color: rgba(26, 26, 26, 0.95);
+    text-transform: uppercase;
+    z-index: 9999;
+    margin-top: 20px;
+}
+
+.modalButton,
+.modalButton:hover {
+    background-color: rgba(26, 26, 26, 0.5);
+    border-color: rgba(26, 26, 26, 0.5);
+}
+
+input {
+    color: #ffffff;
+}
+
+.form-input,
+.form-input:focus {
+    background: transparent;
+    color: #ffffff;
+}
+
+.dropdown-menu {
+    z-index: 20 !important;
+}
+
+
 /* Media Queries */
 
 @media only screen and (max-width: 1093px) {
@@ -348,5 +428,9 @@ button.btn-table:hover {
         font-size: .7em;
         padding: 8px 20px;
         border-radius: 15px;
+    }
+    .cardCookies {
+        width: 250px;
+        padding: 0 20px;
     }
 }

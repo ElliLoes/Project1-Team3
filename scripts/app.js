@@ -4,7 +4,6 @@ window.onload = function() {
 
     $('#fullpage').fullpage({
         //options here
-
         autoScrolling: true,
         scrollHorizontally: true,
         scrollOverflow: true,
@@ -107,9 +106,37 @@ function mockupBiteCards() {
         // add table contents
         $(divCol).append('<div class="d-flex"><h2 class="pr-3">' + business + '</h2><h2>' + price + '</h2></div>');
         $(divCol).append('<div class="d-flex"><p class="pr-3">' + location + '</p><p>' + category + '</p></div>');
-        $(divCol).append('<div class="btn-group btn-group-toggle mr-2" data-toggle="buttons"><label class="btn btn-green"><input type="radio" name="options" id="option1" autocomplete="off" checked>Try</label><label class="btn btn-pink"><input type="radio" name="options" id="option2" autocomplete="off"><img src="src/heart-icon.png" class="heart"></label></div><button class="btn-table">Add Cookies</button>')
+        $(divCol).append('<div class="d-flex"><div class="btn-group btn-group-toggle mr-2" data-toggle="buttons"><label class="btn btn-green"><input type="radio" name="options" id="option1" autocomplete="off" checked>Try</label><label class="btn btn-pink"><input type="radio" name="options" id="option2" autocomplete="off"><img src="src/heart-icon.png" class="heart"></label></div><div class="dropdown"><button id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn-table dropdown-toggle">Add Cookies</button><div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="#">Sydney</a><a class="dropdown-item" href="#">Tokyo</a><a class="dropdown-item" href="#">Hawaii</a></div></div></div>');
+    }
+}
+
+function mockupCookies() {
+    // empty before loading
+    $("#addCookies").empty();
+
+    // add variables for mockup info
+    var cookieName = "Sydney";
+
+    // vars to create elements
+    var divCardContain = $('<div id="cardContain" class="w-100 d-flex align-items-center">');
+    var addCard = $('<div class="cardCookies justify-content-center mr-2 bg-pink d-flex align-items-center"><button id="tripButton" class="text-white" href="#" data-toggle="modal" data-target="#tripModal"><h2>+ Add</h2></button></div>')
+
+    // prepend relevant divs
+    $("#addCookies").prepend(divCardContain);
+    $(divCardContain).prepend(addCard);
+
+    // Creates a div to hold the movie
+    for (var i = 0; i < 10; i++) {
+
+        // prepend relevant divs
+        $("#addCookies").prepend(divCardContain);
+
+        // add table contents
+        $(divCardContain).append('<div class="cardCookies justify-content-center mr-2 bg-dark d-flex align-items-center"><a id="removeBite" href="#"><img src="src/exit-icon.png" class="remove2"></a><a id="edit" href="#"><img src="src/edit-icon.png" class="edit"></a><h2 class="text-light">' + cookieName + '</h2></div>');
+
     }
 }
 
 mockupBiteCards();
 mockupSearchResults();
+mockupCookies();
