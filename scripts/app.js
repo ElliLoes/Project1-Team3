@@ -132,7 +132,7 @@ function mockupCookies() {
         $("#addCookies").prepend(divCardContain);
 
         // add table contents
-        $(divCardContain).append('<div class="cardCookies justify-content-center mr-2 bg-dark d-flex align-items-center"><a id="removeBite" href="#"><img src="src/exit-icon.png" class="remove2"></a><a id="edit" href="#"><img src="src/edit-icon.png" class="edit"></a><h2 class="text-light">' + cookieName + '</h2></div>');
+        $(divCardContain).append('<div class="cardCookies justify-content-center mr-2 bg-dark d-flex align-items-center"><a id="removeBite" href="#"><img src="src/exit-icon.png" class="remove2"></a><a id="edit" href="#"><img src="src/edit-icon.png" class="edit"></a><button class="no-btn"><h2 class="text-light">' + cookieName + '</h2></button></div>');
 
     }
 }
