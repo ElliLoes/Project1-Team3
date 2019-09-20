@@ -126,6 +126,18 @@ button.btn-action {
     color: white;
 }
 
+.no-btn {
+    border: none;
+    background: none;
+}
+
+.no-btn:hover,
+.no-btn:focus {
+    border: none;
+    background: none;
+    outline: none;
+}
+
 .focus {
     background-color: #db567e !important;
 }
@@ -217,10 +229,11 @@ div.card {
     transition: .5s ease;
 }
 
-div.card:hover,
-.dropdown-menu {
+
+/* div.card:hover,
+.dropdown-menu:hover {
     transform: scale(1.05);
-}
+} */
 
 div.card h2 {
     font-size: 1.2em;

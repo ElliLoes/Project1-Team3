@@ -754,6 +754,7 @@ function appendTripRestaurant(data) {
     tr.append("<td class='bubbleFont'>" + data.price);
 
 
+
     var tdWebsite = $("<td class='d-none d-md-block'>");
     tr.append(tdWebsite);
     var buttonWebsite = $("<button class='btn-table'>Website</button>");
