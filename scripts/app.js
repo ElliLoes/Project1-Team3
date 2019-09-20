@@ -146,10 +146,10 @@ function getFromDB() {
     let dbtripCurrentIndex = undefined;
     dbtripCurrentIndex = localStorage.getItem(keyStorageTripsCurrentIndex);
     if (dbtripCurrentIndex === null) {
-        console.log('TRIPSCURRENTINDEX: no content');
+        // console.log('TRIPSCURRENTINDEX: no content');
     } else {
         tripCurrentIndex = JSON.parse(localStorage.getItem(keyStorageTripsCurrentIndex));
-        console.log('TRIPSCURRENTINDEX:', tripCurrentIndex);
+        // console.log('TRIPSCURRENTINDEX:', tripCurrentIndex);
     }
 }
 getFromDB();
@@ -245,7 +245,6 @@ function runFoodAndLocationSearch(e) {
     let lat = 0;
     let lon = 0;
 
-
     if (searchTermString.length == 0) {
         $('#searchForm1').find('span').find('p').text('Required');
     } else {
@@ -267,21 +266,6 @@ function runFoodAndLocationSearch(e) {
         } else {
             ajaxCallGoogleGeocoding(locationTermString, searchTermString);
         }
-
-    let foundValidLocation = false;
-    for (let i = 0; i < arrListLocation.length; i++) {
-        if (inputLocationTerm == arrListLocation[i].name.toLowerCase()) {
-            foundValidLocation = true;
-            lat = arrListLocation[i].lat;
-            lon = arrListLocation[i].lon;
-        } 
-    }
-    if (!foundValidLocation) {
-        inputLocationTerm = 'Sydney';
-        lat = -33.865143;
-        lon = 151.209900;
-        $('#userInputLocation').val(inputLocationTerm);
-
     }
 }
 $('#userInput').on('focusin', function () { $('#searchForm1').find('span').find('p').text(''); });
@@ -313,6 +297,7 @@ function ajaxCallYelp(searchTerm, lat, lon) {
             'Authorization': 'Bearer YD2lcCavl5yda52nTX1wKG-uHD-BRa_9izM0BLTdtg0nvbPe5j81Y9WNLsFEhnCZtOGUH2kbC4f06c7Cdw5UwR4-HJvPJtMf0izr-79DSXBaDzHpWQ3ljZJs9RiAXXYx'
         }
     }).then(function (response) {
+        console.log(response);
         let arr = response.businesses;
         arrSearchResults = [];
         for (let i = 0; i < arr.length; i++) {
@@ -432,7 +417,6 @@ function addSearchToUserRestaurants(data) {
         ////<<< database
         renderUserRestaurants();
     }
-    console.log('restaurant already saved: ' + !toAddItem);
 }
 $('#addResultsButtonClear').on('click', function () {
     $('#addResults').empty();
@@ -593,7 +577,6 @@ function prependUserRestaurant(data) {
 
 
 function renderBiteTrips(menuElement, restaurantID) {
-    // console.log('add to which trip?');
     menuElement.empty();
     for (let i = 0; i < arrTrips.length; i++) {
         prependBiteTrip(menuElement, arrTrips[i], restaurantID);
@@ -627,8 +610,6 @@ function prependBiteTrip(menuElement, tripData, restaurantID) {
             if (inViewTripDetails == tripData.trip_id) {
                 renderTripRestaurants(tripData.restaurant_ids);
             }
-        } else {
-            console.log('already in the trip');
         }
     });
     menuElement.prepend(anchor);
@@ -690,7 +671,6 @@ $('#tripCreateSave').on('click', function () {
     let toSaveTrip = true;
     for (let i = 0; i < arrTrips.length; i++) {
         if (name.toUpperCase() == arrTrips[i].trip_name) {
-            console.log('this name already exists');
             toSaveTrip = false;
         }
     }
@@ -735,7 +715,6 @@ $('#tripRenameSave').on('click', function () {
             break;
         }
         else if (tripNameString.toUpperCase() == arrTrips[i].trip_name.toUpperCase()) {
-            console.log('this name already exists');
             toSaveTrip = false;
         }
     }
@@ -896,7 +875,6 @@ function appendTripRestaurant(data) {
 
 
 
-
     var tdWebsite = $("<td class='mobile'>");
     tr.append(tdWebsite);
     var buttonWebsite = $("<button class='btn-table'>Website</button>");
@@ -910,7 +888,6 @@ function appendTripRestaurant(data) {
     tr.append(tdRemoveCookie);
     var buttonRemoveCookie = $("<button class='btn-table'>Remove</button>");
     buttonRemoveCookie.on('click', function () {
-        console.log('remove this one');
         for (let i = 0; i < arrTrips.length; i++) {
             if (inViewTripDetails == arrTrips[i].trip_id) {
                 // //remove the restaurant from the array.
