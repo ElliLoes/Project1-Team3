@@ -172,16 +172,20 @@ $('#searchFrom').on('submit', function(e) {
     let inputLocationTerm = $('#userInputLocation').val().trim().toLowerCase();
     let lat = 0;
     let lon = 0;
+
+    let foundValidLocation = false;
     for (let i = 0; i < arrListLocation.length; i++) {
         if (inputLocationTerm == arrListLocation[i].name.toLowerCase()) {
+            foundValidLocation = true;
             lat = arrListLocation[i].lat;
             lon = arrListLocation[i].lon;
-        } else {
-            inputLocationTerm = 'Sydney';
-            lat = -33.865143;
-            lon = 151.209900;
-            $('#userInputLocation').val(inputLocationTerm);
-        }
+        } 
+    }
+    if (!foundValidLocation) {
+        inputLocationTerm = 'Sydney';
+        lat = -33.865143;
+        lon = 151.209900;
+        $('#userInputLocation').val(inputLocationTerm);
     }
 
 
