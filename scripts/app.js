@@ -245,6 +245,7 @@ function runFoodAndLocationSearch(e) {
     let lat = 0;
     let lon = 0;
 
+
     if (searchTermString.length == 0) {
         $('#searchForm1').find('span').find('p').text('Required');
     } else {
@@ -266,6 +267,21 @@ function runFoodAndLocationSearch(e) {
         } else {
             ajaxCallGoogleGeocoding(locationTermString, searchTermString);
         }
+
+    let foundValidLocation = false;
+    for (let i = 0; i < arrListLocation.length; i++) {
+        if (inputLocationTerm == arrListLocation[i].name.toLowerCase()) {
+            foundValidLocation = true;
+            lat = arrListLocation[i].lat;
+            lon = arrListLocation[i].lon;
+        } 
+    }
+    if (!foundValidLocation) {
+        inputLocationTerm = 'Sydney';
+        lat = -33.865143;
+        lon = 151.209900;
+        $('#userInputLocation').val(inputLocationTerm);
+
     }
 }
 $('#userInput').on('focusin', function () { $('#searchForm1').find('span').find('p').text(''); });
@@ -876,6 +892,7 @@ function appendTripRestaurant(data) {
     tr.append("<td class='bubbleFont'>" + "<img src='src/burger-icon.png' class='mr-3 rounded food-icon'>" + data.name);
     tr.append("<td class='mobile'>" + data.location);
     tr.append("<td class='mobile'>" + data.categories);
+
 
 
 
