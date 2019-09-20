@@ -541,3 +541,10 @@ input {
 #searchForm2 > p.greytext {
     color: grey;
 }
+
+
+#tripRenameButton h2{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-user-select: none;
+}
