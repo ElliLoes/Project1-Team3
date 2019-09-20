@@ -447,3 +447,24 @@ input {
         padding: 0 20px;
     }
 }
+
+
+
+/* extra stuff - Alex - dont change please. thanks. */
+.cardCookies > a:hover {
+    cursor:pointer;
+}
+
+#clearList:hover {
+    cursor: pointer;
+}
+
+.no-btn, .no-btn:hover, .no-btn:focus, .no-btn:active {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+}
+
+.dropdown-item:hover {
+    cursor: pointer;
+}

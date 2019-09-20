@@ -5,7 +5,8 @@
     <title>ChowTown</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Bungee|Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/fullpage.css">
     <link rel="stylesheet" href="styles/main.css">
@@ -13,25 +14,56 @@
 
 <body>
     <!-- Modal For Cookies Add Location Folder -->
-    <div class="modal fade" id="tripModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal fade" id="tripModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Add Your Trip Name</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Create a new Cookie</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
-                    <div class="md-form mb-5">
+                    <div class="md-form mb-1">
                         <i class="fas fa-tag prefix grey-text"></i>
-                        <input type="text" id="form32" class="form-control validate form-input">
+                        <input type="text" id="tripCreateInput" class="form-control validate form-input"
+                            placeholder="(Optional)">
                     </div>
-                    <p id="folder-name-form-error" class="text-danger">Error</p>
+                    <p id="tripCreateError" class="text-danger small"></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary modalButton" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-secondary modalButton">Add Trip Name</button>
+                    <button id="tripCreateCancel" type="button" class="btn btn-secondary modalButton"
+                        data-dismiss="modal">Cancel</button>
+                    <button id="tripCreateSave" type="button" class="btn btn-secondary modalButton">Save</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Modal For Cookies Add Location Folder -->
+    <div class="modal fade" id="tripModalRename" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Rename a Cookie</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="md-form mb-1">
+                        <i class="fas fa-tag prefix grey-text"></i>
+                        <input type="text" id="tripRenameInput" class="form-control validate form-input"
+                            placeholder="Enter a name for your trip">
+                    </div>
+                    <p id="tripRenameError" class="text-danger small"></p>
+                </div>
+                <div class="modal-footer">
+                    <button id="tripRenameCancel" type="button" class="btn btn-secondary modalButton"
+                        data-dismiss="modal">Cancel</button>
+                    <button id="tripRenameSave" type="button" class="btn btn-secondary modalButton">Save</button>
                 </div>
             </div>
         </div>
@@ -46,6 +78,17 @@
         <img class="arrowRBlack d-none" src="src/arrow04.png">
     </section>
 
+
+
+
+
+
+
+
+
+
+
+
     <!-- Navigation + Search Bar -->
     <div class="col-12">
         <nav id="nav-bar" class="row d-flex align-items-center">
@@ -53,37 +96,43 @@
             <div class="col-12 col-md-7">
                 <div class="row d-flex justify-content-center align-items-center">
                     <a href=""><img id="search-icon" src="src/search-icon.png" class="mr-2 ml-2 d-none d-lg-block"></a>
-                    <input id="userInput" autocomplete="off" class="flex-md-fill search" type="search" placeholder="ChowTown" aria-label="Search">
-                    <button id="addTopic" class="btn-add ml-4" type="submit">Search</button>
-                    <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><img id="search-icon" src="src/sign-in.png" class="mr-2 ml-2 d-none d-lg-block"></a>
+
+                    <form id="searchFrom" class="m-0 p-0">
+                        <!-- <input id="userInput" autocomplete="off" class="flex-md-fill search" type="search"
+                            placeholder="ChowTown" aria-label="Search"> -->
+                        <input id="userInput" autocomplete="off" class="flex-md-fill search" type="search"
+                            placeholder="ChowTown" aria-label="Search" list="listSearch">
+                        <datalist id="listSearch">
+                            <!-- <option value="Ramen"></option> -->
+                        </datalist>
+                        <button id="addTopic" class="btn-add ml-4" type="submit">Search</button>
+                    </form>
+
                 </div>
             </div>
             <!-- Location + Food Categories -->
             <div class="col-12 col-md-5 d-flex align-items-center justify-content-center">
                 <div class="row">
                     <!-- Location + Data List -->
-                    <div class="col-6">
-                        <input class="dropdown" list="listLocation" type="Location" placeholder="Location" aria-label="location">
+                    <div class="col-12">
+                        <input id="userInputLocation" class="dropdown w-100" list="listLocation" type="Location" placeholder="Location"
+                            aria-label="location">
                         <datalist id="listLocation">
-							<option value="Sydney"></option>
-							<option value="Brisbane"></option>
-							<option value="Canberra"></option>
-							<option value="Perth"></option>
-							<option value="Hobart"></option>
-							<option value="Adelaide"></option>
-							<option value="Darwin"></option>
-						</datalist>
+                            <!-- <option value="Adelaide"></option> -->
+                        </datalist>
                     </div>
+
+
                     <!-- Food Items + Data List -->
-                    <div class="col-6">
+                    <!-- <div class="col-6">
                         <input class="dropdown" list="listFoods" type="Food types" placeholder="Food" aria-label="food">
                         <datalist id="listFoods">
-							<option value="Chicken"></option>
-							<option value="Pizza"></option>
-							<option value="Ramen"></option>
-							<option value="Noodles"></option>
-						</datalist>
-                    </div>
+                            <option value="Chicken"></option>
+                            <option value="Pizza"></option>
+                            <option value="Ramen"></option>
+                            <option value="Noodles"></option>
+                        </datalist>
+                    </div> -->
                 </div>
             </div>
         </nav>
@@ -106,6 +155,20 @@
         </div>
     </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- Full Page JS -->
     <div id="fullpage">
         <!-- Section -->
@@ -119,7 +182,7 @@
                             <h2>Results</h2>
                         </div>
                         <div class="col-4 d-flex justify-content-end">
-                            <a id="clearList" href="#"><img src="src/clear-icon.png" class="clear"></a>
+                            <a id="clearList" class="d-none"><img src="src/clear-icon.png" class="clear"></a>
                         </div>
                     </header>
                     <!-- Results Table -->
@@ -135,7 +198,7 @@
                             </tr>
                         </thead>
                         <tbody id="addResult">
-                            <tr>
+                            <!-- <tr>
                                 <td class="bubbleFont">
                                     <img src="src/burger-icon.png" class="mr-3 rounded food-icon">Burger Joint</td>
                                 <td>Sydney</td>
@@ -143,11 +206,37 @@
                                 <td class="bubbleFont">$$</td>
                                 <td class="d-none d-md-block"><button class="btn-table">Website</button></td>
                                 <td><button class="btn-table">Add Bite</button></td>
+                            </tr> -->
+                            <tr>
+                                <td colspan="1000">
+                                    <p class="m-0 p-0 text-center"><i>Search for something.</i></p>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </main>
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             <div class="slide">
                 <main class="container mt-3" data-anchor="Bites">
@@ -157,21 +246,22 @@
                             <h2>Bites</h2>
                         </div>
                         <div class="col-7 col-md-4 d-flex justify-content-end">
-                            <input id="searchBites" autocomplete="off" class="" type="search" placeholder="Search Bites" aria-label="Search">
+                            <input id="searchBites" autocomplete="off" class="" type="search" placeholder="Search Bites"
+                                aria-label="Search">
                         </div>
                     </header>
 
                     <!-- Bites Added  -->
                     <section class="col-12 mt-3">
                         <div id="addBites" class="row d-flex">
-                            <!-- Bite Card Template -->
-                            <div class="card mr-2 mb-2 bg-dark">
+
+
+                            <div class="card mr-2 mb-2 bg-dark w-100">
                                 <div class="col-12">
-                                    <!-- Remove Icon -->
                                     <a id="removeBite" href="#"><img src="src/exit-icon.png" class="remove"></a>
                                     <a id="shareButton" href="#"><img src="src/share-link.png" class="share"></a>
                                     <a id="webButton" href="#"><img src="src/web-link.png" class="web"></a>
-                                    <!-- Resutrant Details -->
+
                                     <div class="d-flex">
                                         <h2 class="pr-3">Burger Joint</h2>
                                         <h2>$$</h2>
@@ -182,11 +272,16 @@
                                     </div>
                                     <div class="d-flex">
                                         <div class="btn-group btn-group-toggle mr-2" data-toggle="buttons">
-                                            <label class="btn btn-green"><input type="radio" name="options" id="option1" autocomplete="off" checked>Try</label>
-                                            <label class="btn btn-pink"><input type="radio" name="options" id="option2" autocomplete="off"><img src="src/heart-icon.png" class="heart"></label>
+                                            <label class="btn btn-green"><input type="radio" name="options" id="option1"
+                                                    autocomplete="off" checked>Try</label>
+                                            <label class="btn btn-pink"><input type="radio" name="options" id="option2"
+                                                    autocomplete="off"><img src="src/heart-icon.png"
+                                                    class="heart"></label>
                                         </div>
                                         <div class="dropdown">
-                                            <button id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn-table dropdown-toggle">Add Cookies</button>
+                                            <button id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false" class="btn-table dropdown-toggle">Add
+                                                Cookies</button>
 
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 <a class="dropdown-item" href="#">Sydney</a>
@@ -194,15 +289,47 @@
                                                 <a class="dropdown-item" href="#">Hawaii</a>
                                             </div>
                                         </div>
-
-
                                     </div>
                                 </div>
                             </div>
+
+
+
+
                         </div>
                     </section>
                 </main>
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             <div class="slide">
                 <main class="container mt-3" data-anchor="Goodies">
@@ -217,20 +344,53 @@
                     <section id="addCookies" class="col-12 mt-3">
                         <!-- container for cards -->
                         <div id="cardContain" class="w-100 d-flex align-items-center">
-                            <div class="cardCookies justify-content-center mr-2 bg-pink d-flex align-items-center">
-                                <button id="tripButton" class="text-white" href="#" data-toggle="modal" data-target="#tripModal"><h2>+ Add</h2></button>
-                            </div>
 
+
+                            
+                            <!-- <div class="cardCookies justify-content-center mr-2 bg-pink d-flex align-items-center p-0">
+                                <button id="tripButton" class="text-white w-100 h-100" href="#" data-toggle="modal"
+                                    data-target="#tripModal">
+                                    <h2>+ Add</h2>
+                                </button>
+                            </div> -->
+
+                            <!-- tripModalRename -->
                             <!-- Cookies -->
-                            <div class="cardCookies justify-content-center mr-2 bg-dark d-flex align-items-center">
-                                <a id="removeBite" href="#"><img src="src/exit-icon.png" class="remove2"></a>
-                                <a id="edit" href="#"><img src="src/edit-icon.png" class="edit"></a>
-                                <button class="no-btn"><h2 class="text-light">Cookie</h2></button>
-                            </div>
+
+                            <!-- <div
+                                class="cardCookies justify-content-center mr-2 bg-dark d-flex align-items-center p-0" style="flex: 1 1 auto;">
+                                <a id="removeBite"><img src="src/exit-icon.png" class="remove2"></a>
+                                <a id="edit"><img src="src/edit-icon.png" class="edit"></a>
+                                <button id="tripRenameButton" class="text-white w-100 h-100 no-btn" href="#" data-toggle="modal"
+                                data-target="#tripModalRename">
+                                    <h2 class="text-light">Cookie</h2>
+                                </button>
+                            </div> -->
 
                         </div>
                     </section>
                     <hr style="border: 1px solid white;">
+                    <!-- Results Table -->
+                    <table class="table mt-3 mb-5 table-hover table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">Business</th>
+                                <th scope="col">Location</th>
+                                <th scope="col" class="d-none d-md-block">Food</th>
+                                <th scope="col">Price</th>
+                                <th scope="col" class="d-none d-md-block">Website</th>
+                                <th scope="col">Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody id="addTripDetails">
+                            <tr>
+                                <td colspan="1000">
+                                    <p class="m-0 p-0 text-center"><i>Select a trip to view details.</i></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
                 </main>
             </div>
         </div>
@@ -238,8 +398,12 @@
 
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
         <script type="text/javascript" src="scripts/fullpage.js"></script>
         <script src="scripts/app.js"></script>
 </body>
