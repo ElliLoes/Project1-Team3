@@ -541,7 +541,7 @@ input {
     bottom: -40px;
     left: 10px;
     font-size: 0.9rem;
-    width: 90%;
+    width: 120%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -550,9 +550,9 @@ input {
     color: grey;
 }
 
-
-#tripRenameButton h2{
+#tripRenameButton h2 {
     overflow: hidden;
     text-overflow: ellipsis;
-    -webkit-user-select: none;
+    white-space: nowrap;
+
 }
