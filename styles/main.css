@@ -67,7 +67,7 @@ input#userInput:focus {
 }
 
 ::-webkit-input-placeholder {
-    color: white;
+    color: white !important;
     background: transparent;
 }
 
@@ -124,6 +124,18 @@ button.btn-action {
 .btn-pink {
     background: #00f29d;
     color: white;
+}
+
+.no-btn {
+    border: none;
+    background: none;
+}
+
+.no-btn:hover,
+.no-btn:focus {
+    border: none;
+    background: none;
+    outline: none;
 }
 
 .focus {
@@ -217,10 +229,16 @@ div.card {
     transition: .5s ease;
 }
 
-div.card:hover,
-.dropdown-menu {
-    transform: scale(1.05);
+.dropdown-location {
+    position: absolute;
+    bottom: 0;
 }
+
+
+/* div.card:hover,
+.dropdown-menu:hover {
+    transform: scale(1.05);
+} */
 
 div.card h2 {
     font-size: 1.2em;
@@ -318,9 +336,17 @@ button.btn-table {
     color: white;
     background-color: rgba(26, 26, 26, 0.3);
     border-radius: 30px;
-    padding: 2px 20px;
+    padding: 2px 10px;
     transition: .1s ease;
     font-size: .8em;
+}
+button.btn-table:disabled {
+    opacity: 0.3;
+}
+button.btn-table:disabled:hover {
+    border: white 2px solid;
+    color: white;
+    background-color: rgba(26, 26, 26, 0.3);
 }
 
 button.btn-table:hover {
@@ -394,6 +420,23 @@ input {
     z-index: 20 !important;
 }
 
+.loading {
+    width: 200px;
+}
+
+.burger {
+    width: 125px;
+}
+
+.activeBtn,
+.activeBtn:hover,
+.activeBtn:focus,
+.activeBtn:active {
+    background: linear-gradient(#26d1a9, transparent), linear-gradient(to top left, #00f29d, transparent), linear-gradient(to top right, #24009c, transparent);
+    background-blend-mode: screen;
+    border-radius: 10px;
+}
+
 
 /* Media Queries */
 
@@ -406,9 +449,10 @@ input {
 @media only screen and (max-width: 768px) {
     nav#nav-bar {
         z-index: 3;
-        height: 150px;
+        height: 75px;
     }
     input#userInput {
+        margin-top: 20px;
         width: 90%;
     }
     .fp-controlArrow {
@@ -426,27 +470,33 @@ input {
     }
     button.btn-table {
         font-size: .7em;
-        padding: 8px 20px;
+        padding: 8px 10px;
         border-radius: 15px;
     }
     .cardCookies {
         width: 250px;
         padding: 0 20px;
     }
+    .mobile {
+        display: none;
+    }
 }
 
 
-
 /* extra stuff - Alex - dont change please. thanks. */
-.cardCookies > a:hover {
-    cursor:pointer;
+
+.cardCookies>a:hover {
+    cursor: pointer;
 }
 
 #clearList:hover {
     cursor: pointer;
 }
 
-.no-btn, .no-btn:hover, .no-btn:focus, .no-btn:active {
+.no-btn,
+.no-btn:hover,
+.no-btn:focus,
+.no-btn:active {
     background-color: rgba(0, 0, 0, 0);
     border: none;
     outline: none;
@@ -454,4 +504,40 @@ input {
 
 .dropdown-item:hover {
     cursor: pointer;
+}
+
+
+#tripCreateInput::placeholder, #tripRenameInput::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+
+
+.logoAnchor {
+    outline: none;
+}
+
+#searchForm1 > span, #searchForm2 {
+    position: relative;
+}
+#searchForm1 > span > p {
+    position: absolute;
+    color: red;
+    bottom: -40px;
+    left: 30px;
+    font-size: 0.9rem;
+}
+#searchForm2 > p {
+    position: absolute;
+    color: red;
+    bottom: -40px;
+    left: 10px;
+    font-size: 0.9rem;
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#searchForm2 > p.greytext {
+    color: grey;
 }

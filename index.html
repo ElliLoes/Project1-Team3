@@ -28,7 +28,7 @@
                     <div class="md-form mb-1">
                         <i class="fas fa-tag prefix grey-text"></i>
                         <input type="text" id="tripCreateInput" class="form-control validate form-input"
-                            placeholder="(Optional)">
+                            placeholder="(Optional)" style>
                     </div>
                     <p id="tripCreateError" class="text-danger small"></p>
                 </div>
@@ -39,8 +39,8 @@
                 </div>
             </div>
         </div>
-
     </div>
+
     <!-- Modal For Cookies Add Location Folder -->
     <div class="modal fade" id="tripModalRename" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
         aria-hidden="true">
@@ -89,66 +89,114 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Login -->
+    <!-- <div class="col-6 mx-auto collapse" id="collapseExample">
+        <form class="p-3">
+            <div class="form-row">
+                <div class="col d-flex align-items-center">
+                    <input type="text" class="form-control text-white bg-pink" placeholder="Username">
+                </div>
+                <div class="col d-flex align-items-center">
+                    <input type="password" class="form-control text-white bg-pink" id="exampleInputPassword1"
+                        placeholder="Password">
+                </div>
+                <div class="col d-flex align-items-center">
+                    <button class="btn-table mr-2">Login</button>
+                    <button class="btn-table">SignUp</button>
+                </div>
+            </div>
+        </form>
+    </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- Navigation + Search Bar -->
     <div class="col-12">
         <nav id="nav-bar" class="row d-flex align-items-center">
             <!-- Search Bar + Icon + Button -->
-            <div class="col-12 col-md-7">
-                <div class="row d-flex justify-content-center align-items-center">
-                    <a href=""><img id="search-icon" src="src/search-icon.png" class="mr-2 ml-2 d-none d-lg-block"></a>
-                    <form id="searchFrom" class="m-0 p-0">
-                        <!-- <input id="userInput" autocomplete="off" class="flex-md-fill search" type="search"
-                            placeholder="ChowTown" aria-label="Search"> -->
-                        <input id="userInput" autocomplete="off" class="flex-md-fill search" type="search"
-                            placeholder="ChowTown" aria-label="Search" list="listSearch">
-                        <datalist id="listSearch">
-                            <!-- <option value="Ramen"></option> -->
-                        </datalist>
-                        <button id="addTopic" class="btn-add ml-4" type="submit">Search</button>
-                    </form>
-                </div>
+            <div class="col-12 col-md-8">
+                <form id="searchForm1" class="row d-flex justify-content-center align-items-center">
+                    <a href="" class="logoAnchor"><img id="search-icon" src="src/search-icon.png"
+                            class="mr-2 ml-2 d-none d-lg-block"></a>
+                    <span class="px-4">
+                        <input id="userInput" data-error="asdf" autocomplete="off" class="flex-md-fill search w-100"
+                            type="search" placeholder="ChowTown" aria-label="Search" list="listSearch">
+                        <p></p>
+                    </span>
+                    <datalist id="listSearch"></datalist>
+                    <button id="addTopic" class="btn-add ml-4" type="submit">Search</button>
+                </form>
             </div>
             <!-- Location + Food Categories -->
-            <div class="col-12 col-md-5 d-flex align-items-center justify-content-center">
+            <div class=" col-md-4 d-flex align-items-center justify-content-center">
                 <div class="row">
-                    <!-- Location + Data List -->
-                    <div class="col-12">
-                        <input id="userInputLocation" class="dropdown w-100" list="listLocation" type="Location" placeholder="Location"
-                            aria-label="location">
-                        <datalist id="listLocation">
-                            <!-- <option value="Adelaide"></option> -->
-                        </datalist>
-                    </div>
-
-
                     <!-- Food Items + Data List -->
-                    <!-- <div class="col-6">
-                        <input class="dropdown" list="listFoods" type="Food types" placeholder="Food" aria-label="food">
-                        <datalist id="listFoods">
-                            <option value="Chicken"></option>
-                            <option value="Pizza"></option>
-                            <option value="Ramen"></option>
-                            <option value="Noodles"></option>
-                        </datalist>
-                    </div> -->
+                    <div class="col-12 d-flex align-items-center">
+                        <form id="searchForm2">
+                            <input id="userInputLocation" class="dropdown d-none d-md-block w-100" list="listLocation"
+                                type="Location" placeholder="Location" aria-label="location">
+                            <datalist id="listLocation"></datalist>
+                            <p class="d-none d-md-block greytext"></p>
+                        </form>
+                        <!-- <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                            aria-controls="collapseExample"><img id="search-icon" style="width: 75px; "
+                                src="src/sign-in.png" class="mr-2 ml-2 d-none d-lg-block"></a> -->
+                    </div>
                 </div>
             </div>
         </nav>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <!-- Full Page JS -->
     <div id="fullpage">
@@ -170,15 +218,16 @@
                     <table class="table mt-3 mb-5 table-hover table-dark">
                         <thead>
                             <tr>
+                                <th scope="col" class="mobile">Price</th>
                                 <th scope="col">Business</th>
-                                <th scope="col">Location</th>
-                                <th scope="col" class="d-none d-md-block">Food</th>
-                                <th scope="col">Price</th>
-                                <th scope="col" class="d-none d-md-block">Website</th>
-                                <th scope="col">Add</th>
+                                <th scope="col" class="mobile">Location</th>
+                                <th scope="col" class="mobile">Website</th>
+                                <th scope="col-2">Add</th>
                             </tr>
                         </thead>
                         <tbody id="addResult">
+
+                            <!-- BITE TEMPLATE -->
                             <!-- <tr>
                                 <td class="bubbleFont">
                                     <img src="src/burger-icon.png" class="mr-3 rounded food-icon">Burger Joint</td>
@@ -188,15 +237,30 @@
                                 <td class="d-none d-md-block"><button class="btn-table">Website</button></td>
                                 <td><button class="btn-table">Add Bite</button></td>
                             </tr> -->
+
                             <tr>
-                                <td colspan="1000">
+                                <td colspan="1000" class="text-center">
+                                    <img class="burger pb-3" src="src/burger.gif">
                                     <p class="m-0 p-0 text-center"><i>Search for something.</i></p>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+                    <!-- Gap for footer -->
+                    <div class="col-12 mt-5 mb-5 p-5"></div>
                 </main>
             </div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -226,18 +290,14 @@
                         <div class="col-5 col-md-8 d-flex justify-content-start">
                             <h2>Bites</h2>
                         </div>
-                        <div class="col-7 col-md-4 d-flex justify-content-end">
-                            <input id="searchBites" autocomplete="off" class="" type="search" placeholder="Search Bites"
-                                aria-label="Search">
-                        </div>
                     </header>
 
                     <!-- Bites Added  -->
                     <section class="col-12 mt-3">
                         <div id="addBites" class="row d-flex">
 
-
-                            <div class="card mr-2 mb-2 bg-dark w-100">
+                            <!-- BITE TEMPLATE -->
+                            <!-- <div class="card mr-2 mb-2 bg-dark w-100">
                                 <div class="col-12">
                                     <a id="removeBite" href="#"><img src="src/exit-icon.png" class="remove"></a>
                                     <a id="shareButton" href="#"><img src="src/share-link.png" class="share"></a>
@@ -259,6 +319,7 @@
                                                     autocomplete="off"><img src="src/heart-icon.png"
                                                     class="heart"></label>
                                         </div>
+
                                         <div class="dropdown">
                                             <button id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                                 aria-expanded="false" class="btn-table dropdown-toggle">Add
@@ -272,15 +333,22 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
+                            </div> -->
 
 
 
                         </div>
                     </section>
+                    <!-- Gap for footer -->
+                    <div class="col-12 mt-5 mb-5 p-5"></div>
                 </main>
             </div>
+
+
+
+
+
+
 
 
 
@@ -327,7 +395,7 @@
                         <div id="cardContain" class="w-100 d-flex align-items-center">
 
 
-                            
+                            <!-- ADD COOKIE TEMPLATE -->
                             <!-- <div class="cardCookies justify-content-center mr-2 bg-pink d-flex align-items-center p-0">
                                 <button id="tripButton" class="text-white w-100 h-100" href="#" data-toggle="modal"
                                     data-target="#tripModal">
@@ -335,8 +403,7 @@
                                 </button>
                             </div> -->
 
-                            <!-- tripModalRename -->
-                            <!-- Cookies -->
+                            <!-- COOKIE TEMPLATE -->
                             <!-- <div
                                 class="cardCookies justify-content-center mr-2 bg-dark d-flex align-items-center p-0" style="flex: 1 1 auto;">
                                 <a id="removeBite"><img src="src/exit-icon.png" class="remove2"></a>
@@ -347,8 +414,6 @@
                                 </button>
                             </div> -->
 
-
-
                         </div>
                     </section>
                     <hr style="border: 1px solid white;">
@@ -356,26 +421,53 @@
                     <table class="table mt-3 mb-5 table-hover table-dark">
                         <thead>
                             <tr>
-                                <th scope="col">Business</th>
-                                <th scope="col">Location</th>
-                                <th scope="col" class="d-none d-md-block">Food</th>
                                 <th scope="col">Price</th>
-                                <th scope="col" class="d-none d-md-block">Website</th>
+                                <th scope="col">Business</th>
+                                <th scope="col" class="mobile">Location</th>
+                                <th scope="col" class="mobile">Food</th>
+                                <th scope="col" class="mobile">Website</th>
                                 <th scope="col">Remove</th>
                             </tr>
                         </thead>
                         <tbody id="addTripDetails">
                             <tr>
-                                <td colspan="1000">
+                                <td colspan="1000" class="text-center">
+                                    <img class="burger pb-2" src="src/cookie.gif">
                                     <p class="m-0 p-0 text-center"><i>Select a trip to view details.</i></p>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-
+                    <!-- Gap for footer -->
+                    <div class="col-12 mt-5 mb-5 p-5"></div>
                 </main>
             </div>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -387,7 +479,8 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
         <script type="text/javascript" src="scripts/fullpage.js"></script>
-        <script src="scripts/app.js"></script>
+        <script src="scripts/categories.js"></script>
+        <script defer src="scripts/app.js"></script>
 </body>
 
 </html>
